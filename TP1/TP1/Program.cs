@@ -1,44 +1,28 @@
-﻿using Model;
+﻿
+using BusinessManager;
 using Model.classes;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace TP1
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
-            try
+            Manager manager = Manager.Instance;
+            List<Eleve> listEleves = manager.GetAllEleve();
+
+            foreach(Eleve e in listEleves)
             {
-                ModelContext context = new ModelContext();
-
-                List<Eleve> listeEleves = new List<Eleve>();
-
-                Classe classe = new Classe { NomEtablissement = "MCW", Niveau = "4eme", Eleves = listeEleves };
-
-                Eleve eleve1 = new Eleve { 
-                    Nom = "Paul", 
-                    Prenom = "Pierre", 
-                    Classe = classe, 
-                    DateDeNaissance = new DateTime(), 
-                    Absences = new List<Absence>(),
-                    Notes = new List<Note>(),
-                };
-
-                
-                listeEleves.Add(eleve1);
-
-
-                context.Classes.Add(classe);
-                context.Eleves.Add(eleve1);
-                context.SaveChanges();
+                Console.WriteLine("Elève:");
+                Console.WriteLine(e.Nom);
+                Console.WriteLine(e.Prenom);
+                Console.WriteLine(e.Id);
             }
-            catch(Exception e)
-            {
-                throw e;
-            }
+            Thread.Sleep(10000);
         }
     }
 }

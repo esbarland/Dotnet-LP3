@@ -15,3 +15,6 @@ D:\3A\P3\Dotnet\Projets\TP1\TP1\bin\Debug\Model.dll.config
 D:\3A\P3\Dotnet\Projets\TP1\TP1\bin\Debug\EntityFramework.xml
 D:\3A\P3\Dotnet\Projets\TP1\TP1\bin\Debug\EntityFramework.SqlServer.xml
 D:\3A\P3\Dotnet\Projets\TP1\TP1\obj\Debug\TP1.csproj.CopyComplete
+D:\3A\P3\Dotnet\Projets\TP1\TP1\bin\Debug\BusinessManager.dll
+D:\3A\P3\Dotnet\Projets\TP1\TP1\bin\Debug\BusinessManager.pdb
+D:\3A\P3\Dotnet\Projets\TP1\TP1\bin\Debug\BusinessManager.dll.config

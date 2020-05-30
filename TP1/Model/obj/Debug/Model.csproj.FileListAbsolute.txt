@@ -5,10 +5,10 @@ D:\3A\P3\Dotnet\Projets\TP1\Model\bin\Debug\EntityFramework.dll
 D:\3A\P3\Dotnet\Projets\TP1\Model\bin\Debug\EntityFramework.SqlServer.dll
 D:\3A\P3\Dotnet\Projets\TP1\Model\bin\Debug\EntityFramework.xml
 D:\3A\P3\Dotnet\Projets\TP1\Model\bin\Debug\EntityFramework.SqlServer.xml
-D:\3A\P3\Dotnet\Projets\TP1\Model\obj\Debug\Model.csprojAssemblyReference.cache
 D:\3A\P3\Dotnet\Projets\TP1\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
 D:\3A\P3\Dotnet\Projets\TP1\Model\obj\Debug\Model.csproj.CopyComplete
 D:\3A\P3\Dotnet\Projets\TP1\Model\obj\Debug\Model.dll
 D:\3A\P3\Dotnet\Projets\TP1\Model\obj\Debug\Model.pdb
 D:\3A\P3\Dotnet\Projets\TP1\Model\bin\Debug\Database1.mdf
 D:\3A\P3\Dotnet\Projets\TP1\Model\bin\Debug\Database1_log.ldf
+D:\3A\P3\Dotnet\Projets\TP1\Model\obj\Debug\Model.csprojAssemblyReference.cache
