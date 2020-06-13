@@ -21,5 +21,9 @@ namespace BusinessManager.Queries
         {
             return _context.Eleves;
         }
+        public Eleve GetOne(int id)
+        {
+            return _context.Eleves.Where(e => e.Id == id).FirstOrDefault();
+        }
     }
 }

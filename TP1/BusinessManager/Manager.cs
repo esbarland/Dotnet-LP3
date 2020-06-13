@@ -44,6 +44,11 @@ namespace BusinessManager
             }
             return eleves;
         }
+        public Eleve GetOneEleve(int id)
+        {
+            EleveQuery eq = new EleveQuery(context);
+            return eq.GetOne(id);
+        }
         public List<Note> GetAllNote()
         {
             NoteQuery nq = new NoteQuery(context);
@@ -58,6 +63,11 @@ namespace BusinessManager
         {
             ClasseCommand cc = new ClasseCommand(context);
             return cc.Ajouter(c);
+        }
+        public int SupprimerEleve(int id)
+        {
+            EleveCommand ec = new EleveCommand(context);
+            return ec.Supprimer(id);
         }
     }
 }

@@ -22,6 +22,15 @@ namespace BusinessManager.Commands
             _context.Eleves.Add(e);
             return _context.SaveChanges();
         }
+        public int Supprimer(int id)
+        {
+            Eleve eleveToDelete = _context.Eleves.Where(e => e.Id == id).FirstOrDefault();
+            if(eleveToDelete != null)
+            {
+                _context.Eleves.Remove(eleveToDelete);
+            }
+            return _context.SaveChanges();
+        }
 
     }
 }

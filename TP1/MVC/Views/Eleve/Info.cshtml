@@ -1,0 +1,13 @@
+﻿@using MVC.Models
+@model EleveViewModel
+
+    <div>
+
+        @Html.ActionLink("Retour", "List", "Eleve", null, new { @class = "btn btn-success" })
+
+        <h4>@Model.Id</h4>
+        <h4>@Model.Nom</h4>
+        <h4>@Model.Prenom</h4>
+
+
+    </div>

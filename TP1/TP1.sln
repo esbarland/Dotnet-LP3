@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graph", "Graph\Graph.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessManager", "BusinessManager\BusinessManager.csproj", "{924B29A8-E0C2-4273-A940-10A5538F9CA6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC", "MVC\MVC.csproj", "{6EAF175E-6B84-4D34-BA81-5C078C74DD37}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{924B29A8-E0C2-4273-A940-10A5538F9CA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{924B29A8-E0C2-4273-A940-10A5538F9CA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{924B29A8-E0C2-4273-A940-10A5538F9CA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EAF175E-6B84-4D34-BA81-5C078C74DD37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EAF175E-6B84-4D34-BA81-5C078C74DD37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EAF175E-6B84-4D34-BA81-5C078C74DD37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EAF175E-6B84-4D34-BA81-5C078C74DD37}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
