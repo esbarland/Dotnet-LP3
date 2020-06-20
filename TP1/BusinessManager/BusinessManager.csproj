@@ -52,10 +52,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\ClasseCommand.cs" />
+    <Compile Include="Commands\NoteCommand.cs" />
     <Compile Include="Commands\EleveCommand.cs" />
     <Compile Include="Manager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries\EleveQuery.cs" />
+    <Compile Include="Queries\AbsenceQuery.cs" />
+    <Compile Include="Queries\ClasseQuery.cs" />
     <Compile Include="Queries\NoteQuery.cs" />
   </ItemGroup>
   <ItemGroup>

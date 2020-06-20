@@ -11,10 +11,6 @@ namespace MVC.Controllers
 {
     public class EleveController : Controller
     {
-        public ActionResult Index()
-        {
-            return View();
-        }
         public ActionResult List()
         {
             List<Eleve> list = BusinessManager.Manager.Instance.GetAllEleve();
@@ -49,13 +45,21 @@ namespace MVC.Controllers
 
             return RedirectToAction("List", "Eleve");
         }
-
         public ActionResult Add()
         {
-            Eleve e = new Eleve() { Nom = "Nouveau nom", Prenom = "Nouveau nom", DateDeNaissance = DateTime.Now, ClasseId = 1 };
-            BusinessManager.Manager.Instance.AjouterEleve(e);
+            return View();
+        }
 
-            return RedirectToAction("List", "Eleve");
+        [HttpPost]
+        public ActionResult Add(EleveViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                Eleve e = new Eleve() { Nom = model.Nom, Prenom = model.Prenom, DateDeNaissance = model.DateDeNaissance, ClasseId = 1 };
+                BusinessManager.Manager.Instance.AjouterEleve(e);
+                return RedirectToAction("List", "Eleve");
+            }
+            return View(model);
         }
 
     }

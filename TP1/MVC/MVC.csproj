@@ -127,13 +127,16 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\ArrayList.cs" />
+    <Compile Include="Controllers\ClasseController.cs" />
     <Compile Include="Controllers\EleveController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NoteController.cs" />
+    <Compile Include="Converters\ClasseConverter.cs" />
     <Compile Include="Converters\EleveConverter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ClasseViewModel.cs" />
     <Compile Include="Models\EleveViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -175,10 +178,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Eleve\Index.cshtml" />
     <Content Include="Views\Eleve\List.cshtml" />
     <Content Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map" />
     <Content Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map" />
@@ -319,9 +319,12 @@
     <Content Include="wwwroot\lib\bootstrap\scss\utilities\_text.scss" />
     <Content Include="wwwroot\lib\bootstrap\scss\utilities\_visibility.scss" />
     <Content Include="Views\Eleve\Info.cshtml" />
+    <Content Include="Views\Classe\List.cshtml" />
+    <Content Include="Views\Eleve\Add.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Note\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

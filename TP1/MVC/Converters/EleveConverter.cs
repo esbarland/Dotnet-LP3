@@ -13,7 +13,7 @@ namespace MVC.Converters
 
         public static List<EleveViewModel> ConvertListElevesToViewModel(List<Eleve> list)
         {
-            List<EleveViewModel> eleveViewModels = new ArrayList<EleveViewModel>();
+            List<EleveViewModel> eleveViewModels = new List<EleveViewModel>();
 
             foreach (Eleve e in list)
             {

@@ -40,6 +40,8 @@ namespace BusinessManager
             {
                 NoteQuery nq = new NoteQuery(context);
                 e.Notes = nq.GetByEleveId(e.Id).ToList();
+                AbsenceQuery aq = new AbsenceQuery(context);
+                e.Absences = aq.GetByEleveId(e.Id).ToList();
                 eleves.Add(e);
             }
             return eleves;
@@ -49,10 +51,10 @@ namespace BusinessManager
             EleveQuery eq = new EleveQuery(context);
             return eq.GetOne(id);
         }
-        public List<Note> GetAllNote()
+        public List<Classe> GetAllClasse()
         {
-            NoteQuery nq = new NoteQuery(context);
-            return nq.GetAll().ToList();
+            ClasseQuery cq = new ClasseQuery(context);
+            return cq.GetAll().ToList();
         }
         public int AjouterEleve(Eleve e)
         {
@@ -64,10 +66,20 @@ namespace BusinessManager
             ClasseCommand cc = new ClasseCommand(context);
             return cc.Ajouter(c);
         }
+        public int AjouterNote(Note n)
+        {
+            NoteCommand nc = new NoteCommand(context);
+            return nc.Ajouter(n);
+        }
         public int SupprimerEleve(int id)
         {
             EleveCommand ec = new EleveCommand(context);
             return ec.Supprimer(id);
+        }
+        public int SupprimerNote(int id)
+        {
+            NoteCommand nc = new NoteCommand(context);
+            return nc.Supprimer(id);
         }
     }
 }

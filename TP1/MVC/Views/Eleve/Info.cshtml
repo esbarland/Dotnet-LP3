@@ -1,13 +1,49 @@
 ﻿@using MVC.Models
 @model EleveViewModel
 
-    <div>
-
-        @Html.ActionLink("Retour", "List", "Eleve", null, new { @class = "btn btn-success" })
-
-        <h4>@Model.Id</h4>
-        <h4>@Model.Nom</h4>
-        <h4>@Model.Prenom</h4>
-
-
+@Html.ActionLink("Retour", "List", "Eleve", null, new { @class = "btn btn-danger float-right" })
+      
+<div class="row">
+    <div class="col-2">
+        <div class="list-group" id="list-tab" role="tablist">
+            <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#info-etudiant" role="tab">Informations</a>
+            <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#notes-etudiant" role="tab">Notes</a>
+            <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#absences-etudiant" role="tab">Absences</a>
+        </div>
     </div>
+    <div class="col-10">
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="info-etudiant" role="tabpanel">
+                <h5>Identitfiant: @Model.Id</h5>
+                <h5>Nom: @Model.Nom</h5>
+                <h5>Prénom: @Model.Prenom</h5>
+                <h5>Date de naissance: @Model.DateDeNaissance</h5>
+            </div>
+            <div class="tab-pane fade" id="notes-etudiant" role="tabpanel">
+                @Html.ActionLink("Ajouter une note", "Add", "Note", new { EleveId = @Model.Id }, new { @class = "btn btn-success" })
+                @foreach (var note in @Model.Notes)
+                {
+                    <h5>@note.Matiere - @note.Valeur</h5>
+                }
+                @if (Model.Notes.Count() == 0)
+                {
+                    <div class="alert alert-danger" role="alert">
+                        L'élève n'a pas de notes
+                    </div>
+                }
+            </div>
+            <div class="tab-pane fade" id="absences-etudiant" role="tabpanel">
+                @foreach (var absence in @Model.Absences)
+                {
+                    <h5>@absence.DateAbsence - @absence.Motif</h5>
+                }
+                @if (Model.Absences.Count() == 0)
+                {
+                    <div class="alert alert-danger" role="alert">
+                        L'élève n'a pas d'absences
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
