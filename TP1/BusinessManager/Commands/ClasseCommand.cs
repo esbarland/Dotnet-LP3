@@ -22,6 +22,15 @@ namespace BusinessManager.Commands
             _context.Classes.Add(c);
             return _context.SaveChanges();
         }
+        public int Supprimer(int id)
+        {
+            Classe classeToDelete = _context.Classes.Where(n => n.Id == id).FirstOrDefault();
+            if (classeToDelete != null)
+            {
+                _context.Classes.Remove(classeToDelete);
+            }
+            return _context.SaveChanges();
+        }
 
     }
 }

@@ -46,6 +46,12 @@ namespace BusinessManager
             }
             return eleves;
         }
+        public List<Eleve> GetEleveByClasseId(int id)
+        {
+            EleveQuery eq = new EleveQuery(context);
+
+            return eq.GetAllByClasseId(id) ;
+        }
         public Eleve GetOneEleve(int id)
         {
             EleveQuery eq = new EleveQuery(context);
@@ -55,6 +61,11 @@ namespace BusinessManager
         {
             ClasseQuery cq = new ClasseQuery(context);
             return cq.GetAll().ToList();
+        }
+        public Classe GetOneClasse(int id)
+        {
+            ClasseQuery cq = new ClasseQuery(context);
+            return cq.GetOne(id);
         }
         public int AjouterEleve(Eleve e)
         {
@@ -71,15 +82,30 @@ namespace BusinessManager
             NoteCommand nc = new NoteCommand(context);
             return nc.Ajouter(n);
         }
+        public int AjouterAbsence(Absence a)
+        {
+            AbsenceCommand ac = new AbsenceCommand(context);
+            return ac.Ajouter(a);
+        }
         public int SupprimerEleve(int id)
         {
             EleveCommand ec = new EleveCommand(context);
             return ec.Supprimer(id);
         }
+        public int SupprimerClasse(int id)
+        {
+            ClasseCommand cc = new ClasseCommand(context);
+            return cc.Supprimer(id);
+        }
         public int SupprimerNote(int id)
         {
             NoteCommand nc = new NoteCommand(context);
             return nc.Supprimer(id);
+        }
+        public int SupprimerAbsence(int id)
+        {
+            AbsenceCommand ac = new AbsenceCommand(context);
+            return ac.Supprimer(id);
         }
     }
 }

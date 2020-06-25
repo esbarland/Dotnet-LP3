@@ -25,5 +25,21 @@ namespace BusinessManager.Queries
         {
             return _context.Eleves.Where(e => e.Id == id).FirstOrDefault();
         }
+        public List<Eleve> GetAllByClasseId(int id)
+        {
+            List<Eleve> list = new List<Eleve>();
+
+            foreach(Eleve e in _context.Eleves)
+            {
+                if(e.ClasseId == id)
+                {
+                    list.Add(e);
+                }
+            }
+
+            return list;
+        }
+
+
     }
 }

@@ -1,7 +1,7 @@
 ﻿@using MVC.Models
 @model EleveViewModel
 
-@Html.ActionLink("Retour", "List", "Eleve", null, new { @class = "btn btn-danger float-right" })
+@Html.ActionLink("Retour", "Index", "Eleve", null, new { @class = "btn btn-danger float-right" })
       
 <div class="row">
     <div class="col-2">
@@ -21,10 +21,34 @@
             </div>
             <div class="tab-pane fade" id="notes-etudiant" role="tabpanel">
                 @Html.ActionLink("Ajouter une note", "Add", "Note", new { EleveId = @Model.Id }, new { @class = "btn btn-success" })
-                @foreach (var note in @Model.Notes)
-                {
-                    <h5>@note.Matiere - @note.Valeur</h5>
-                }
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Matière</th>
+                            <th scope="col">Valeur</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Appréciation</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var note in Model.Notes)
+                        {
+                        <tr>
+                            <th scope="row">@note.Id</th>
+                            <td>@note.Matiere</td>
+                            <td>@note.Valeur</td>
+                            <td>@note.DateNote</td>
+                            <td>@note.Appreciation</td>
+                            <td>
+                                @Html.ActionLink("Supprimer", "Remove", "Note", new { id = note.Id, EleveId = Model.Id }, new { @class = "btn btn-danger" })
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+
                 @if (Model.Notes.Count() == 0)
                 {
                     <div class="alert alert-danger" role="alert">
@@ -33,10 +57,31 @@
                 }
             </div>
             <div class="tab-pane fade" id="absences-etudiant" role="tabpanel">
-                @foreach (var absence in @Model.Absences)
-                {
-                    <h5>@absence.DateAbsence - @absence.Motif</h5>
-                }
+                @Html.ActionLink("Ajouter une absence", "Add", "Absence", new { EleveId = @Model.Id }, new { @class = "btn btn-success" })
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Motif</th>
+                            <th scope="col">date</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var absence in Model.Absences)
+                        {
+                            <tr>
+                                <th scope="row">@absence.Id</th>
+                                <td>@absence.Motif</td>
+                                <td>@absence.DateAbsence</td>
+                                <td>
+                                    @Html.ActionLink("Supprimer", "Remove", "Absence", new { id = absence.Id, EleveId = Model.Id }, new { @class = "btn btn-danger" })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
                 @if (Model.Absences.Count() == 0)
                 {
                     <div class="alert alert-danger" role="alert">

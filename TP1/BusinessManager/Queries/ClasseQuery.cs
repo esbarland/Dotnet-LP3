@@ -21,5 +21,10 @@ namespace BusinessManager.Queries
         {
             return _context.Classes;
         }
+
+        public Classe GetOne(int id)
+        {
+            return _context.Classes.Where(e => e.Id == id).FirstOrDefault();
+        }
     }
 }

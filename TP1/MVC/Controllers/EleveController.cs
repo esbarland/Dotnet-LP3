@@ -4,6 +4,7 @@ using MVC.Models;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 
@@ -11,9 +12,14 @@ namespace MVC.Controllers
 {
     public class EleveController : Controller
     {
-        public ActionResult List()
+        public ActionResult Index(string search)
         {
             List<Eleve> list = BusinessManager.Manager.Instance.GetAllEleve();
+
+            if (!String.IsNullOrEmpty(search))
+            {
+                list = list.Where(e => e.Nom.ToLower().Contains(search.ToLower()) || e.Prenom.ToLower().Contains(search.ToLower())).ToList();
+            }
 
             return View(EleveConverter.ConvertListElevesToViewModel(list));
         }
@@ -43,7 +49,7 @@ namespace MVC.Controllers
 
             BusinessManager.Manager.Instance.SupprimerEleve(id);
 
-            return RedirectToAction("List", "Eleve");
+            return RedirectToAction("Index", "Eleve");
         }
         public ActionResult Add()
         {
@@ -55,9 +61,9 @@ namespace MVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                Eleve e = new Eleve() { Nom = model.Nom, Prenom = model.Prenom, DateDeNaissance = model.DateDeNaissance, ClasseId = 1 };
+                Eleve e = new Eleve() { Nom = model.Nom, Prenom = model.Prenom, DateDeNaissance = model.DateDeNaissance, ClasseId = model.ClasseId };
                 BusinessManager.Manager.Instance.AjouterEleve(e);
-                return RedirectToAction("List", "Eleve");
+                return RedirectToAction("Index", "Eleve");
             }
             return View(model);
         }

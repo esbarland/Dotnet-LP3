@@ -1,0 +1,33 @@
+﻿@using MVC.Models
+@model ClasseViewModel
+
+@Html.ActionLink("Retour", "Index", "Classe", null, new { @class = "btn btn-danger float-right" })
+      
+<div>
+    <h5>Identitfiant: @Model.Id</h5>
+    <h5>Nom: @Model.NomEtablissement</h5>
+    <h5>Prénom: @Model.Niveau</h5>
+    <h5>Nombres d'elèves: @Model.Eleves.Count</h5>
+</div>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Prénom</th>
+            <th scope="col">Date de naissance</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var eleve in Model.Eleves)
+        {
+            <tr>
+                <th scope="row">@eleve.Id</th>
+                <td>@eleve.Nom</td>
+                <td>@eleve.Prenom</td>
+                <td>@eleve.DateDeNaissance</td>
+            </tr>
+        }
+    </tbody>
+</table>

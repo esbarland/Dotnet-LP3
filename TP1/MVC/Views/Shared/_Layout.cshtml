@@ -17,17 +17,13 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    @Html.ActionLink("Elèves", "List", "Eleve", new { area = "" }, new { @class = "nav-link" })
+                <li class="nav-item">
+                    @Html.ActionLink("Elèves", "Index", "Eleve", new { area = "" }, new { @class = "nav-link" })
                 </li>
                 <li class="nav-item">
-                    @Html.ActionLink("Classes", "List", "Classe", new { area = "" }, new { @class = "nav-link" })
+                    @Html.ActionLink("Classes", "Index", "Classe", new { area = "" }, new { @class = "nav-link" })
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Recherche">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
-            </form>
         </div>
     </nav>
 

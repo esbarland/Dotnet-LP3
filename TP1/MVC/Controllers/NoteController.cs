@@ -11,29 +11,38 @@ namespace MVC.Controllers
 {
     public class NoteController : Controller
     {
-        /*public ActionResult Remove(int id = 0)
+        public ActionResult Remove(int id = 0, int EleveId = 0)
         {
-            if (id == 0)
+            if (id == 0 || EleveId == 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            BusinessManager.Manager.Instance.SupprimerEleve(id);
-
-            return RedirectToAction("List", "Eleve");
-        }*/
-
-        public ActionResult Add(int EleveId = 0)
-        {
-            if(EleveId == 0)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-
-            Note note = new Note() { DateNote = DateTime.Now, Matiere = "Maths", Valeur = 14, Appreciation = "Bon travail", EleveId = EleveId };
-            BusinessManager.Manager.Instance.AjouterNote(note);
+            BusinessManager.Manager.Instance.SupprimerNote(id);
 
             return RedirectToAction("Info", "Eleve", new { id = EleveId });
+        }
+
+        public ActionResult Add()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Add(NoteViewModel model, int EleveId = 0)
+        {
+            if (EleveId == 0)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            if (ModelState.IsValid)
+            {
+                Note n = new Note() { Matiere = model.Matiere, Appreciation = model.Appreciation, DateNote = model.DateNote, Valeur = model.Valeur, EleveId = EleveId };
+                BusinessManager.Manager.Instance.AjouterNote(n);
+                return RedirectToAction("Info", "Eleve", new { id = n.EleveId });
+            }
+            return View(model);
         }
 
     }

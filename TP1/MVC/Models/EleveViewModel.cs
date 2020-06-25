@@ -14,6 +14,7 @@ namespace MVC.Models
         public DateTime DateDeNaissance { get; set; }
         public ICollection<Note> Notes { get; set; }
         public ICollection<Absence> Absences { get; set; }
+        public int ClasseId { get; set; }
 
         public EleveViewModel()
         {
@@ -27,6 +28,7 @@ namespace MVC.Models
             this.Nom = eleve.Nom;
             this.Prenom = eleve.Prenom;
             this.DateDeNaissance = eleve.DateDeNaissance;
+            this.ClasseId = eleve.ClasseId;
             if(eleve.Notes.Count() == 0)
             {
                 this.Notes = new List<Note>();

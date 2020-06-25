@@ -13,6 +13,5 @@ namespace Model.classes
         public int Id { get; set; }
         public String NomEtablissement { get; set; }
         public String Niveau { get; set; }
-        public ICollection<Eleve> Eleves { get; set; }
     }
 }
