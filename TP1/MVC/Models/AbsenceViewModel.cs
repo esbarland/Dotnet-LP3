@@ -17,7 +17,6 @@ namespace MVC.Models
         {
 
         }
-
         public AbsenceViewModel(Absence absence)
         {
             this.Id = absence.Id;

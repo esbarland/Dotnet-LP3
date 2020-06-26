@@ -9,7 +9,7 @@ namespace MVC.Models
     public class EleveBestViewModel : EleveViewModel
     {
         public double MoyenneNotes { get; set; }
-        public EleveBestViewModel()
+        public EleveBestViewModel(Eleve e) : base(e)
         {
 
         }

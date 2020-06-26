@@ -53,6 +53,9 @@ namespace MVC.Controllers
         }
         public ActionResult Add()
         {
+            List<Classe> listClasses = BusinessManager.Manager.Instance.GetAllClasse();
+            ViewBag.ClassesList = ToSelectList(listClasses);
+
             return View();
         }
 
@@ -66,6 +69,24 @@ namespace MVC.Controllers
                 return RedirectToAction("Index", "Eleve");
             }
             return View(model);
+        }
+
+
+        [NonAction]
+        public SelectList ToSelectList(List<Classe> listClasses)
+        {
+            List<SelectListItem> list = new List<SelectListItem>();
+
+            foreach (Classe c in listClasses)
+            {
+                list.Add(new SelectListItem()
+                {
+                    Text = c.NomEtablissement + " - " + c.Niveau,
+                    Value = c.Id.ToString()
+                });
+            }
+
+            return new SelectList(list, "Value", "Text");
         }
 
     }

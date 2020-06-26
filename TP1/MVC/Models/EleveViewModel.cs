@@ -1,4 +1,5 @@
 ﻿using Model.classes;
+using MVC.Converters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,14 +13,14 @@ namespace MVC.Models
         public String Nom { get; set; }
         public String Prenom { get; set; }
         public DateTime DateDeNaissance { get; set; }
-        public ICollection<Note> Notes { get; set; }
-        public ICollection<Absence> Absences { get; set; }
+        public ICollection<NoteViewModel> Notes { get; set; }
+        public ICollection<AbsenceViewModel> Absences { get; set; }
         public int ClasseId { get; set; }
 
         public EleveViewModel()
         {
-            this.Notes = new List<Note>();
-            this.Absences = new List<Absence>();
+            this.Notes = new List<NoteViewModel>();
+            this.Absences = new List<AbsenceViewModel>();
         }
 
         public EleveViewModel(Eleve eleve)
@@ -29,21 +30,25 @@ namespace MVC.Models
             this.Prenom = eleve.Prenom;
             this.DateDeNaissance = eleve.DateDeNaissance;
             this.ClasseId = eleve.ClasseId;
-            if(eleve.Notes.Count() == 0)
+            this.Notes = new List<NoteViewModel>();
+            this.Absences = new List<AbsenceViewModel>();
+
+            if (eleve.Notes != null)
             {
-                this.Notes = new List<Note>();
+                foreach (Note n in eleve.Notes)
+                {
+                    NoteViewModel noteViewModel = new NoteViewModel(n);
+                    this.Notes.Add(noteViewModel);
+                }
             }
-            else
+
+            if(eleve.Absences != null)
             {
-                this.Notes = eleve.Notes;
-            }
-            if (eleve.Absences.Count() == 0)
-            {
-                this.Absences = new List<Absence>();
-            }
-            else
-            {
-                this.Absences= eleve.Absences;
+                foreach (Absence a in eleve.Absences)
+                {
+                    AbsenceViewModel absenceViewModel = new AbsenceViewModel(a);
+                    this.Absences.Add(absenceViewModel);
+                }
             }
         }
     }

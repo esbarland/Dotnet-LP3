@@ -37,9 +37,7 @@ namespace MVC.Controllers
                 return HttpNotFound();
             }
 
-            List<Eleve> listEleves = BusinessManager.Manager.Instance.GetEleveByClasseId(selectedClasse.Id);
-
-            return View(new ClasseViewModel(selectedClasse) { Eleves = listEleves });
+            return View(new ClasseViewModel(selectedClasse));
         }
 
         public ActionResult Remove(int id = 0)

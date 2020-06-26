@@ -1,4 +1,5 @@
 ﻿using Model.classes;
+using MVC.Converters;
 using MVC.Models;
 using System;
 using System.Collections.Generic;
@@ -31,18 +32,11 @@ namespace MVC.Controllers
                     moyenneTmp = Math.Round(moyenneTmp / e.Notes.Count(), 2);
                 }
 
-                listElevesBest.Add(new EleveBestViewModel()
-                {
-                    Id = e.Id,
-                    Nom = e.Nom,
-                    Prenom = e.Prenom,
-                    DateDeNaissance = e.DateDeNaissance,
-                    MoyenneNotes = moyenneTmp
-                }); ;
+                listElevesBest.Add(new EleveBestViewModel(e) { MoyenneNotes = moyenneTmp });
             }
             listElevesBest = listElevesBest.OrderByDescending(e => e.MoyenneNotes).Take(HOME_ELEVES_TO_DISPLAY).ToList();
 
-            return View(new HomeViewModel() { ElevesOff = listElevesOff, ElevesBest = listElevesBest });
+            return View(new HomeViewModel() { ElevesOff = EleveConverter.ConvertListElevesToViewModel(listElevesOff), ElevesBest = listElevesBest });
         }
     }
 }
