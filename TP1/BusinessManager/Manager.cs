@@ -55,17 +55,35 @@ namespace BusinessManager
         public Eleve GetOneEleve(int id)
         {
             EleveQuery eq = new EleveQuery(context);
-            return eq.GetOne(id);
+
+            Eleve e = eq.GetOne(id);
+
+            NoteQuery nq = new NoteQuery(context);
+            e.Notes = nq.GetByEleveId(id).ToList();
+            AbsenceQuery aq = new AbsenceQuery(context);
+            e.Absences = aq.GetByEleveId(id).ToList();
+
+            return e;
         }
         public List<Classe> GetAllClasse()
         {
             ClasseQuery cq = new ClasseQuery(context);
-            return cq.GetAll().ToList();
+
+            List<Classe> classes = new List<Classe>();
+
+            foreach(Classe c in cq.GetAll().ToList())
+            {
+                c.Eleves = GetEleveByClasseId(c.Id);
+                classes.Add(c);
+            }
+            return classes;
         }
         public Classe GetOneClasse(int id)
         {
             ClasseQuery cq = new ClasseQuery(context);
-            return cq.GetOne(id);
+            Classe c = cq.GetOne(id);
+            c.Eleves = GetEleveByClasseId(id);
+            return c;
         }
         public int AjouterEleve(Eleve e)
         {

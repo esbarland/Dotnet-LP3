@@ -1,8 +1,12 @@
 ﻿@using MVC.Models
 @model EleveViewModel
 
+@{
+    ViewBag.Title = "Etudiant";
+}
+
 @Html.ActionLink("Retour", "Index", "Eleve", null, new { @class = "btn btn-danger float-right" })
-      
+
 <div class="row">
     <div class="col-2">
         <div class="list-group" id="list-tab" role="tablist">
@@ -17,7 +21,7 @@
                 <h5>Identitfiant: @Model.Id</h5>
                 <h5>Nom: @Model.Nom</h5>
                 <h5>Prénom: @Model.Prenom</h5>
-                <h5>Date de naissance: @Model.DateDeNaissance</h5>
+                <h5>Date de naissance: @Model.DateDeNaissance.ToString("dd/MM/yyyy")</h5>
             </div>
             <div class="tab-pane fade" id="notes-etudiant" role="tabpanel">
                 @Html.ActionLink("Ajouter une note", "Add", "Note", new { EleveId = @Model.Id }, new { @class = "btn btn-success" })
@@ -35,16 +39,16 @@
                     <tbody>
                         @foreach (var note in Model.Notes)
                         {
-                        <tr>
-                            <th scope="row">@note.Id</th>
-                            <td>@note.Matiere</td>
-                            <td>@note.Valeur</td>
-                            <td>@note.DateNote</td>
-                            <td>@note.Appreciation</td>
-                            <td>
-                                @Html.ActionLink("Supprimer", "Remove", "Note", new { id = note.Id, EleveId = Model.Id }, new { @class = "btn btn-danger" })
-                            </td>
-                        </tr>
+                            <tr>
+                                <th scope="row">@note.Id</th>
+                                <td>@note.Matiere</td>
+                                <td>@note.Valeur</td>
+                                <td>@note.DateNote.ToString("dd/MM/yyyy")</td>
+                                <td>@note.Appreciation</td>
+                                <td>
+                                    @Html.ActionLink("Supprimer", "Remove", "Note", new { id = note.Id, EleveId = Model.Id }, new { @class = "btn btn-danger" })
+                                </td>
+                            </tr>
                         }
                     </tbody>
                 </table>
@@ -63,7 +67,7 @@
                         <tr>
                             <th scope="col">Id</th>
                             <th scope="col">Motif</th>
-                            <th scope="col">date</th>
+                            <th scope="col">Date</th>
                             <th scope="col">Actions</th>
                         </tr>
                     </thead>
@@ -73,7 +77,7 @@
                             <tr>
                                 <th scope="row">@absence.Id</th>
                                 <td>@absence.Motif</td>
-                                <td>@absence.DateAbsence</td>
+                                <td>@absence.DateAbsence.ToString("dd/MM/yyyy")</td>
                                 <td>
                                     @Html.ActionLink("Supprimer", "Remove", "Absence", new { id = absence.Id, EleveId = Model.Id }, new { @class = "btn btn-danger" })
                                 </td>

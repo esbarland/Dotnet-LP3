@@ -1,6 +1,7 @@
 ﻿using Model.classes;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Web;
 
@@ -10,9 +11,13 @@ namespace MVC.Models
     {
 
         public int Id { get; set; }
+        [DisplayName("Matière")]
         public String Matiere { get; set; }
+        [DisplayName("Date de la note")]
         public DateTime DateNote { get; set; }
+        [DisplayName("Appréciation")]
         public String Appreciation { get; set; }
+        [DisplayName("Valeur")]
         public int Valeur { get; set; }
 
         public NoteViewModel()

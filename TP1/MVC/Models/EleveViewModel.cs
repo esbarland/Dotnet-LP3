@@ -2,6 +2,7 @@
 using MVC.Converters;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Web;
 
@@ -10,11 +11,15 @@ namespace MVC.Models
     public class EleveViewModel
     {
         public int Id { get; set; }
+        [DisplayName("Nom")]
         public String Nom { get; set; }
+        [DisplayName("Prénom")]
         public String Prenom { get; set; }
+        [DisplayName("Date de naissance")]
         public DateTime DateDeNaissance { get; set; }
         public ICollection<NoteViewModel> Notes { get; set; }
         public ICollection<AbsenceViewModel> Absences { get; set; }
+        [DisplayName("Classe")]
         public int ClasseId { get; set; }
 
         public EleveViewModel()

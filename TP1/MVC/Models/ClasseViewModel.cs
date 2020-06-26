@@ -1,6 +1,7 @@
 ﻿using Model.classes;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Web;
 
@@ -9,7 +10,9 @@ namespace MVC.Models
     public class ClasseViewModel
     {
         public int Id { get; set; }
+        [DisplayName("Nom de l'établissement")]
         public String NomEtablissement { get; set; }
+        [DisplayName("Niveau de la classe")]
         public String Niveau { get; set; }
         public ICollection<EleveViewModel> Eleves { get; set; }
 

@@ -1,6 +1,10 @@
 ﻿@using MVC.Models
 @model List<ClasseViewModel>
 
+@{
+    ViewBag.Title = "Liste des classes";
+}
+
 @Html.ActionLink("Ajouter une classe", "Add", "Classe", null, new { @class = "btn btn-success float-right mb-1" })
 
 @using (Html.BeginForm())

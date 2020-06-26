@@ -1,8 +1,12 @@
 ﻿@using MVC.Models
 @model ClasseViewModel
 
+@{
+    ViewBag.Title = "Classe";
+}
+
 @Html.ActionLink("Retour", "Index", "Classe", null, new { @class = "btn btn-danger float-right" })
-      
+
 <div>
     <h5>Identitfiant: @Model.Id</h5>
     <h5>Nom: @Model.NomEtablissement</h5>
@@ -26,7 +30,7 @@
                 <th scope="row">@eleve.Id</th>
                 <td>@eleve.Nom</td>
                 <td>@eleve.Prenom</td>
-                <td>@eleve.DateDeNaissance</td>
+                <td>@eleve.DateDeNaissance.ToString("dd/MM/yyyy")</td>
             </tr>
         }
     </tbody>
