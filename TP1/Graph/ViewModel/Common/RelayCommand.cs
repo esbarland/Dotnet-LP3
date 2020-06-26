@@ -7,7 +7,7 @@ using System.Windows.Input;
 
 namespace Graph.ViewModel.Common
 {
-    public class RelayCommand
+    public class RelayCommand : ICommand
     {
         private readonly Action execute;
         private readonly Func<bool> canExecute;

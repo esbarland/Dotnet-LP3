@@ -9,32 +9,55 @@
 
     <StackPanel Margin="10">
 
-        <DockPanel>
-            <StackPanel DockPanel.Dock="Left" Width="Auto" Margin="5px">
+        <Button HorizontalAlignment="Right" Background="LightGreen" Command="{Binding SaveOperation}" Width="150px" Padding="3px">Sauvegarder l'étudiant</Button>
+
+        <StackPanel Orientation="Horizontal">
+            <StackPanel Width="Auto" Margin="5px">
+                <Label FontWeight="Bold">Désignation</Label>
+                <TextBlock Text="Nom"></TextBlock>
+                <TextBlock Text="Prenom"></TextBlock>
+                <TextBlock Text="Date de naissance"></TextBlock>
+            </StackPanel>
+            <StackPanel Width="Auto" Margin="5px">
                 <Label FontWeight="Bold">Détails</Label>
                 <TextBlock Text="{Binding Nom}"></TextBlock>
                 <TextBlock Text="{Binding Prenom}"></TextBlock>
-                <TextBlock Text="{Binding DateDeNaissance, StringFormat='dd/MM/yyyy'}"></TextBlock>
+                <TextBlock Text="{Binding ElementName=datePicker, Path=Text}"/>
             </StackPanel>
-            <StackPanel DockPanel.Dock="Right" Width="auto" Margin="5px">
+            <StackPanel Width="auto" Margin="5px">
                 <Label  FontWeight="Bold">Edition</Label>
                 <TextBox Text="{Binding Nom, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"></TextBox>
                 <TextBox Text="{Binding Prenom, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"></TextBox>
-                <TextBox Text="{Binding DateDeNaissance, StringFormat='dd/MM/yyyy', UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"></TextBox>
+                <DatePicker Name="datePicker" DisplayDate="{Binding DateDeNaissance, StringFormat='dd/MM/yyyy', UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" SelectedDate="{Binding DateDeNaissance, StringFormat='dd/MM/yyyy', UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"></DatePicker>
             </StackPanel>
-        </DockPanel>
-        
-        
-        
-        
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Moyenne de l'étudiant: "></TextBlock>
+            <TextBlock Text="{Binding Moyenne}"></TextBlock>
+        </StackPanel>
 
         <ListView Margin="5px" ItemsSource="{Binding Notes, UpdateSourceTrigger=PropertyChanged}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Matière" Width="100px" DisplayMemberBinding="{Binding Matiere}"></GridViewColumn>
-                    <GridViewColumn Header="Note" Width="100px" DisplayMemberBinding="{Binding Valeur}"></GridViewColumn>
-                    <GridViewColumn Header="Appréciation" Width="100px" DisplayMemberBinding="{Binding Appreciation}"></GridViewColumn>
-                    <GridViewColumn Header="Date" Width="100px" DisplayMemberBinding="{Binding DateNote, StringFormat='dd/MM/yyyy'}"></GridViewColumn>
+                    <GridViewColumn Header="Matière" Width="Auto" DisplayMemberBinding="{Binding Matiere}"></GridViewColumn>
+                    <GridViewColumn Header="Note" Width="Auto" DisplayMemberBinding="{Binding Valeur}"></GridViewColumn>
+                    <GridViewColumn Header="Appréciation" Width="Auto" DisplayMemberBinding="{Binding Appreciation}"></GridViewColumn>
+                    <GridViewColumn Header="Date" Width="Auto" DisplayMemberBinding="{Binding DateNote, StringFormat='dd/MM/yyyy'}"></GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <StackPanel Orientation="Horizontal" Margin="0, 5px, 0, 0">
+            <TextBlock Text="Nombres d'absences de l'étudiant: "></TextBlock>
+            <TextBlock Text="{Binding NombreAbsences}"></TextBlock>
+        </StackPanel>
+
+        <ListView Margin="5px" ItemsSource="{Binding Absences, UpdateSourceTrigger=PropertyChanged}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Motif" Width="Auto" DisplayMemberBinding="{Binding Motif}"></GridViewColumn>
+                    <GridViewColumn Header="Date" Width="Auto" DisplayMemberBinding="{Binding DateAbsence, StringFormat='dd/MM/yyyy'}"></GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>

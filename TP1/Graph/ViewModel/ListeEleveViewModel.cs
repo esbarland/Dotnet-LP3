@@ -21,6 +21,7 @@ namespace Graph.ViewModel
             {
                 _eleves.Add(new EleveDetailViewModel(e));
             }
+            _eleves = new ObservableCollection<EleveDetailViewModel>(_eleves.OrderBy(e => e.Nom).ThenBy(e => e.Prenom).ToList());
 
             if (_eleves != null && _eleves.Count > 0)
                 _selectedEleve = _eleves.ElementAt(0);

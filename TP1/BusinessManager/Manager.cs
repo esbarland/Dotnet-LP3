@@ -107,5 +107,10 @@ namespace BusinessManager
             AbsenceCommand ac = new AbsenceCommand(context);
             return ac.Supprimer(id);
         }
+        public int ModifierEleve(Eleve e)
+        {
+            EleveCommand ec = new EleveCommand(context);
+            return ec.Modifier(e);
+        }
     }
 }

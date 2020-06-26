@@ -31,6 +31,17 @@ namespace BusinessManager.Commands
             }
             return _context.SaveChanges();
         }
+        public int Modifier(Eleve eleve)
+        {
+            Eleve eleveToUpdate = _context.Eleves.Where(e => e.Id == eleve.Id).FirstOrDefault();
+            if (eleveToUpdate != null)
+            {
+                eleveToUpdate.Nom = eleve.Nom;
+                eleveToUpdate.Prenom = eleve.Prenom;
+                eleveToUpdate.DateDeNaissance = eleve.DateDeNaissance;
+            }
+            return _context.SaveChanges();
+        }
 
     }
 }

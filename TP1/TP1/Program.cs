@@ -40,12 +40,6 @@ namespace TP1
                     Console.WriteLine("{0} {1}", n.Matiere, n.Valeur);
                 }
             }
-            Console.WriteLine("--------------------------");
-            foreach(Note n in manager.GetAllNote())
-            {
-                Console.WriteLine("Note from db:");
-                Console.WriteLine("{0} {1}", n.Matiere, n.Valeur);
-            }
             Thread.Sleep(10000);
         }
     }

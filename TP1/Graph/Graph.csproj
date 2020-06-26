@@ -72,6 +72,7 @@
     <Compile Include="ViewModel\Common\RelayCommand.cs" />
     <Compile Include="ViewModel\EleveDetailViewModel.cs" />
     <Compile Include="ViewModel\ListeEleveViewModel.cs" />
+    <Compile Include="ViewModel\AbsenceViewModel.cs" />
     <Compile Include="ViewModel\NoteViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
