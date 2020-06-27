@@ -16,9 +16,9 @@ namespace MVC.Controllers
         public ActionResult Index()
         {
             List<Eleve> allEleves = BusinessManager.Manager.Instance.GetAllEleve();
-            List<Eleve> listElevesOff = allEleves.OrderByDescending(e => e.Absences.Count).Take(HOME_ELEVES_TO_DISPLAY).ToList();
             List<EleveBestViewModel> listElevesBest = new List<EleveBestViewModel>();
 
+            // Récupérer une liste des meilleurs élèves en fonction de leur moyenne
             foreach(Eleve e in allEleves)
             {
                 double moyenneTmp = 0;
@@ -36,7 +36,10 @@ namespace MVC.Controllers
             }
             listElevesBest = listElevesBest.OrderByDescending(e => e.MoyenneNotes).Take(HOME_ELEVES_TO_DISPLAY).ToList();
 
-            return View(new HomeViewModel() { ElevesOff = EleveConverter.ConvertListElevesToViewModel(listElevesOff), ElevesBest = listElevesBest });
+            // Récupérer une liste des 5 derniers absents
+            List<Absence> listAbsencesLast = BusinessManager.Manager.Instance.GetAllAbsences().OrderByDescending(a => a.DateAbsence).Take(HOME_ELEVES_TO_DISPLAY).ToList();
+
+            return View(new HomeViewModel() { AbsencesLast = AbsenceConverter.ConvertListAbsencesToViewModel(listAbsencesLast), ElevesBest = listElevesBest });
         }
     }
 }

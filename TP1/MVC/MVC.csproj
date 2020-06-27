@@ -132,6 +132,7 @@
     <Compile Include="Controllers\EleveController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NoteController.cs" />
+    <Compile Include="Converters\AbsenceConverter.cs" />
     <Compile Include="Converters\ClasseConverter.cs" />
     <Compile Include="Converters\EleveConverter.cs" />
     <Compile Include="Global.asax.cs">

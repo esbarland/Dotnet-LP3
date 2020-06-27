@@ -85,6 +85,11 @@ namespace BusinessManager
             c.Eleves = GetEleveByClasseId(id);
             return c;
         }
+        public List<Absence> GetAllAbsences()
+        {
+            AbsenceQuery aq = new AbsenceQuery(context);
+            return aq.GetAll().ToList();
+        }
         public int AjouterEleve(Eleve e)
         {
             EleveCommand ec = new EleveCommand(context);

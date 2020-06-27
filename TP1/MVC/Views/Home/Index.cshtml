@@ -34,26 +34,22 @@
 
 <hr class="my-3" />
 
-<h3>Les élèves les plus absents</h3>
+<h3>Les 5 dernières absences</h3>
 <table class="table table-hover">
     <thead>
         <tr>
             <th scope="col">Id</th>
-            <th scope="col">Nom</th>
-            <th scope="col">Prénom</th>
-            <th scope="col">Date de naissance</th>
-            <th scope="col">Nombre d'absences</th>
+            <th scope="col">Motif</th>
+            <th scope="col">Date</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var eleve in Model.ElevesOff)
+        @foreach (var absence in Model.AbsencesLast)
         {
         <tr>
-            <th scope="row">@eleve.Id</th>
-            <td>@eleve.Nom</td>
-            <td>@eleve.Prenom</td>
-            <td>@eleve.DateDeNaissance.ToString("dd/MM/yyyy")</td>
-            <td>@eleve.Absences.Count</td>
+            <th scope="row">@absence.Id</th>
+            <td>@absence.Motif</td>
+            <td>@absence.DateAbsence.ToString("dd/MM/yyyy")</td>
         </tr>
         }
     </tbody>

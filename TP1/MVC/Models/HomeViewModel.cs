@@ -9,12 +9,12 @@ namespace MVC.Models
     public class HomeViewModel
     {
         public ICollection<EleveBestViewModel> ElevesBest { get; set; }
-        public ICollection<EleveViewModel> ElevesOff { get; set; }
+        public ICollection<AbsenceViewModel> AbsencesLast { get; set; }
 
         public HomeViewModel()
         {
             this.ElevesBest = new List<EleveBestViewModel>();
-            this.ElevesOff = new List<EleveViewModel>();
+            this.AbsencesLast = new List<AbsenceViewModel>();
         }
 
     }
